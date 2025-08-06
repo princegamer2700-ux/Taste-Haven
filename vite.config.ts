@@ -3,11 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 
 export default defineConfig({
-  root: "./client",
-  plugins: [
-    react(),
-    // REMOVE replit plugins
-  ],
+  root: path.resolve(__dirname, "client"), // <-- FIXED
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client/src"),
@@ -22,7 +19,7 @@ export default defineConfig({
   server: {
     fs: {
       strict: true,
-      deny: ["**/.**"],
+      deny: ["**/.*"],
     },
   },
 });
